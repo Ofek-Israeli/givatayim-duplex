@@ -96,21 +96,12 @@
     revealAll();
   }
 
-  /* ---------- youtube embed ---------- */
-  var wrap = document.getElementById('video-embed');
-  var section = document.getElementById('video');
-  if (wrap && section) {
-    var id = wrap.dataset.youtube;
-    if (id && id.indexOf('__') !== 0) {
-      wrap.innerHTML =
-        '<div class="video__frame">' +
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1" ' +
-        'title="סרטון סיור בדירה" loading="lazy" allowfullscreen ' +
-        'allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
-        '</div>';
-    } else {
-      // No video yet: drop the whole section rather than show an empty frame.
-      section.remove();
-    }
+  /* ---------- video ---------- */
+  // Pause playback when the player scrolls out of view.
+  var player = document.querySelector('.video__player');
+  if (player && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting && !player.paused) player.pause();
+    }, { threshold: 0 }).observe(player);
   }
 })();

@@ -167,10 +167,13 @@
       <h2>סרטון סיור</h2>
       <p>הליכה בדירה מקצה לקצה</p>
     </header>
-    <div class="video" id="video-embed" data-youtube="__YOUTUBE_ID__">
-      <div class="video__pending">
-        <p>הסרטון יעלה כאן בקרוב.</p>
-      </div>
+    <div class="video">
+      <video class="video__player" controls preload="metadata"
+             poster="images/video-poster.jpg" playsinline
+             width="1080" height="1440">
+        <source src="video/tour.mp4" type="video/mp4">
+        <p>הדפדפן שלך אינו תומך בנגן הווידאו. <a href="video/tour.mp4">להורדת הסרטון</a></p>
+      </video>
     </div>
   </div>
 </section>

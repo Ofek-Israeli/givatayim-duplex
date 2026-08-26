@@ -203,18 +203,11 @@ a{color:inherit}
 
 /* ---------- video ---------- */
 .video{max-width:400px;margin-inline:auto}
-.video__frame{
-  position:relative;aspect-ratio:9/16;border-radius:var(--radius-lg);
-  overflow:hidden;background:#000;box-shadow:var(--shadow-lg);
+.video__player{
+  display:block;width:100%;height:auto;aspect-ratio:3/4;
+  border-radius:var(--radius-lg);background:#000;
+  box-shadow:var(--shadow-lg);object-fit:cover;
 }
-.video__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video__pending{
-  aspect-ratio:9/16;border-radius:var(--radius-lg);
-  border:1px dashed rgba(255,255,255,.22);
-  display:grid;place-items:center;text-align:center;padding:2rem;
-  color:rgba(255,255,255,.55);
-}
-.video__pending p{margin:0}
 
 /* ---------- prose ---------- */
 .prose p{margin:0 0 1.15rem;font-size:1.06rem;color:var(--body)}
