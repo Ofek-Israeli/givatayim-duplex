@@ -97,9 +97,9 @@
   }
 
   /* ---------- youtube embed ---------- */
-  // Loads the iframe only once the visitor asks for it, so the page stays fast.
   var wrap = document.getElementById('video-embed');
-  if (wrap) {
+  var section = document.getElementById('video');
+  if (wrap && section) {
     var id = wrap.dataset.youtube;
     if (id && id.indexOf('__') !== 0) {
       wrap.innerHTML =
@@ -108,6 +108,9 @@
         'title="סרטון סיור בדירה" loading="lazy" allowfullscreen ' +
         'allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
         '</div>';
+    } else {
+      // No video yet: drop the whole section rather than show an empty frame.
+      section.remove();
     }
   }
 })();
